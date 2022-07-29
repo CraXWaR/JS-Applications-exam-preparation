@@ -4,9 +4,9 @@ const host = 'http://localhost:3030';
 
 async function request(url, options) {
     try {
-        const res = await fetch(host, + url, options);
+        let res = await fetch(host + url, options);
         if (res.ok == false) {
-            const error = await res.json();
+            let error = await res.json();
             throw new Error(error.message);
         }
 
@@ -26,15 +26,15 @@ function createOptions(method = 'get', data) {
         method,
         headers: {}
     };
-
+    
     if (data != undefined) {
         options.headers['Content-Type'] = 'application/json';
         options.body = JSON.stringify(data);
     }
-
-    const userData = getUserData();
+    
+    let userData = getUserData();
     if (userData) {
-        options.headers['X-Authorization'] = userData.acessToken;
+        options.headers['X-Authorization'] = userData.accessToken;
     }
 
     return options;
@@ -45,38 +45,36 @@ export async function get(url) {
 }
 
 export async function post(url, data) {
-    return request(url, createOptions('post'), data);
+    return request(url, createOptions('post', data));
 }
 
 export async function put(url, data) {
-    return request(url, createOptions('put'), data);
+    return request(url, createOptions('put', data));
 }
 
 export async function del(url) {
     return request(url, createOptions('delete'));
 }
 
-export async function login(email, passowrd) {
-    const result = await post('users/login', { email, passowrd })
+export async function login(email, password) {
+    let result = await post('/users/login', { email, password });
 
-    const userData = {
+    let userData = {
         email: result.email,
         id: result._id,
-        //passowrd: result.passowrd,
-        acessToken: result.acessToken
+        accessToken: result.accessToken
     };
     setUserData(userData);
     return result;
 }
 
-export async function register(email, passowrd) {
-    const result = await post('users/register', { email, passowrd })
+export async function register(email, password) {
+    const result = await post('/users/register', { email, password });
 
-    const userData = {
+    let userData = {
         email: result.email,
         id: result._id,
-        //passowrd: result.passowrd,
-        acessToken: result.acessToken
+        accessToken: result.accessToken
     };
     setUserData(userData);
     return result;

@@ -1,5 +1,5 @@
 import { login } from "../api/api.js";
-import { html } from "../lib.js";
+import { html, render } from "../lib.js";
 import { updateUserNav } from '../app.js';
 
 const loginTemplate = (onSubmit) => html 
@@ -26,7 +26,7 @@ const loginTemplate = (onSubmit) => html
 
 export function loginPage(ctx) {
     ctx.render(loginTemplate(onSubmit));
-
+    
     async function onSubmit(e) {
         e.preventDefault();
         const formData = new FormData(e.target);

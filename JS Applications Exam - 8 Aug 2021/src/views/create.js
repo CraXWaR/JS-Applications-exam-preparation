@@ -1,4 +1,4 @@
-import { html } from "../lib.js";
+import { html, render } from "../lib.js";
 
 const createTemplate = (onSubmit) => html `
 <section id="create-page" class="create">

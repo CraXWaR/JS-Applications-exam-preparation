@@ -1,6 +1,6 @@
 import { html } from "../lib.js";
 import { bookPreview } from './common.js';
-import { getAllBooks } from '../api/api.js';
+import { getAllBooks } from '../api/data.js';
 
 let homeTemplate = (books) => html `
 <section id="dashboard-page" class="dashboard">

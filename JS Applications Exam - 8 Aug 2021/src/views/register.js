@@ -1,6 +1,5 @@
 import { register } from "../api/api.js";
 import { html } from "../lib.js";
-import { updateUserNav } from '../app.js';
 
 const registerTemplate = (onSubmit) => html 
 `<section id="register-page" class="register">

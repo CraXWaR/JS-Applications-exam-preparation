@@ -1,6 +1,6 @@
-import { html } from "./lib.js";
+import { html } from "../lib.js";
 import { getUserData } from "../util.js";
-import { deleteBook, getBookById, getLikesByBookId, getMyLikesByBookId, likeBook } from "../api/data";
+import { deleteBook, getBookById, getLikesByBookId, getMyLikesByBookId, likeBook } from "../api/data.js";
 
 const detailsTemplate = (book, isOwner, onDelete, likes, showLikeBtn, onLike) => html `
 <section id="details-page" class="details">
