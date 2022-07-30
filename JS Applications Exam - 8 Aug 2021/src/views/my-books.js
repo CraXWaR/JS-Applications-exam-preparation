@@ -14,6 +14,7 @@ html `<ul class="my-book-list">${books.map(bookPreview)}</ul>`}
 
 export async function myBooksPage(ctx) {
     const userData = getUserData();
+
     const books = await getMyBooks(userData.id);
     ctx.render(myBooksTemplate(books));
 }

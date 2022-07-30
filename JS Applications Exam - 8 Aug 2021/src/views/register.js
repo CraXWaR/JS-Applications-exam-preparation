@@ -31,7 +31,7 @@ const registerTemplate = (onSubmit) => html
 
 export function registerPage(ctx) {
     ctx.render(registerTemplate(onSubmit));
-
+ 
     async function onSubmit(e) {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -48,7 +48,7 @@ export function registerPage(ctx) {
         }
 
         await register(email, password);
-        ctx.updateUserNav();
+        ctx.updateNav();
         ctx.page.redirect('/')
     }
 }

@@ -17,11 +17,11 @@ export async function getMyBooks(userId) {
 }
 
 export async function createBook(book) {
-    return api.post('/data/books/', book);
+    return api.post('/data/books', book);
 }
 
 export async function editBook(id, book) {
-    return api.put('/data/books' + id, book);
+    return api.put('/data/books/' + id, book);
 }
 
 export async function deleteBook(id) {

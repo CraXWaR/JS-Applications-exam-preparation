@@ -7,7 +7,7 @@ const detailsTemplate = (book, isOwner, onDelete, likes, showLikeBtn, onLike) =>
     <div class="book-information">
         <h3>${book.title}</h3>
         <p class="type">Type: ${book.type}</p>
-        <p class="img"><img src="${book.imageUrl}></p>
+        <p class="img"><img src=${book.imageUrl}></p>
         <div class="actions">
             ${bookControlsTempalte(book, isOwner, onDelete)}
             ${likesControlsTemplate(showLikeBtn, onLike)}
@@ -16,6 +16,10 @@ const detailsTemplate = (book, isOwner, onDelete, likes, showLikeBtn, onLike) =>
                 <span id="total-likes">Likes: ${likes}</span>
             </div>
         </div>
+    </div>
+    <div class="book-description">
+        <h3>Description:</h3>
+        <p>${book.description}</p>
     </div>
 </section>
 `;
@@ -32,10 +36,9 @@ const bookControlsTempalte = (book, isOwner, onDelete) => {
 
 const likesControlsTemplate = (showLikeBtn, onLike) => {
     if(showLikeBtn) {
-        return html `<a class="button" href="javascript:void(0)">Like</a>`;
-    } else {
-        return null;
+        return html `<a @click=${onLike} id="like" class="button" href="javascript:void(0)">Like</a>`;
     }
+    return null;
 }
 
 export async function detailsPage(ctx) {

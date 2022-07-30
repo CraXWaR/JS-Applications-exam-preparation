@@ -1,6 +1,5 @@
 import { login } from "../api/api.js";
 import { html, render } from "../lib.js";
-import { updateUserNav } from '../app.js';
 
 const loginTemplate = (onSubmit) => html 
 `<section id="login-page" class="login">
@@ -35,11 +34,12 @@ export function loginPage(ctx) {
         const password = formData.get('password').trim();
 
         if (email == '' || password == '') {
-            return alert('All field are required!');
+            return alert('All fields are required!');
         }
 
         await login(email, password);
-        ctx.updateUserNav();
+        ctx.updateNav();
         ctx.page.redirect('/')
+
     }
 }

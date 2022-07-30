@@ -1,3 +1,4 @@
+import { editBook, getBookById } from "../api/data.js";
 import { html } from "../lib.js"
 
 
@@ -9,20 +10,20 @@ const editTemplate = (book, onSubmit) => html`
             <p class="field">
                 <label for="title">Title</label>
                 <span class="input">
-                    <input type="text" name="title" id="title" value="A Court of Thorns and Roses">
+                    <input type="text" name="title" id="title" value=${book.title}>
                 </span>
             </p>
             <p class="field">
                 <label for="description">Description</label>
                 <span class="input">
                     <textarea name="description"
-                        id="description">Feyre's survival rests upon her ability to hunt and kill – the forest where she lives is a cold, bleak place in the long winter months. So when she spots a deer in the forest being pursued by a wolf, she cannot resist fighting it for the flesh. But to do so, she must kill the predator and killing something so precious comes at a price ...</textarea>
+                        id="description">${book.description}</textarea>
                 </span>
             </p>
             <p class="field">
                 <label for="image">Image</label>
                 <span class="input">
-                    <input type="text" name="imageUrl" id="image" value="/images/book1.png">
+                    <input type="text" name="imageUrl" id="image" value=${book.imageUrl}>
                 </span>
             </p>
             <p class="field">
@@ -42,3 +43,29 @@ const editTemplate = (book, onSubmit) => html`
     </form>
 </section>`;
 
+export async function editView(ctx) {
+    const book = await getBookById(ctx.params.id);
+
+    ctx.render(editTemplate(book, onSubmit));
+
+    async function onSubmit(e) {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+
+        const book = {
+            title: formData.get('title'),
+            description: formData.get('description'),
+            imageUrl: formData.get('imageUrl'),
+            type: formData.get('type')
+        }
+        console.log(book);
+        if (book.title == "" || book.description == "" || book.imageUrl == "") {
+            return alert('All field are required!');
+        }
+
+        await editBook(ctx.params.id, book);
+        e.target.reset();
+        ctx.page.redirect('/details/' + ctx.params.id)
+    }
+}
