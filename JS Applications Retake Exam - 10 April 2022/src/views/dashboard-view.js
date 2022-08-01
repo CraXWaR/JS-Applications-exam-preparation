@@ -16,14 +16,14 @@ const postCard = (post) => html `
         <h2 class="post-title">${post.title}</h2>
         <img class="post-image" src=${post.imageUrl} alt="Material Image">
         <div class="btn-wrapper">
-////////////<a href="/details" class="details-btn btn">Details</a>
+            <a href="/details" class="details-btn btn">Details</a>
         </div>
     </div>
 </div>`;
 
 export async function dashboardView(ctx) {
     if (getUserData()) {
-        ctx.page.redirect('/dashboard');
+        ctx.page.redirect('/');
     } else {
         const posts = await getAllPosts();
         ctx.render(dashboardTemplate(posts));

@@ -31,7 +31,7 @@ export function registerView(ctx) {
     async function onRegister(e) {
         e.preventDefault();
         const formData = new FormData(e.target);
-        console.log(e.target);
+
         const email = formData.get('email');
         const password = formData.get('password');
         const rePass = formData.get('repeatPassword');
@@ -46,6 +46,8 @@ export function registerView(ctx) {
 
         await register(email, password)
         ctx.updateNav();
-        ctx.page.redirect('/dashboard')
+        ctx.page.redirect('/')
     }
 }
+
+//solved by refactoring a block of code that looks like going into a loop.

@@ -44,7 +44,7 @@ export async function detailsView(ctx) {
 
         if (choice) {
             await deletePost(ctx.params.id);
-            ctx.page.redirect('/dashboard')
+            ctx.page.redirect('/')
         }
     }
 }

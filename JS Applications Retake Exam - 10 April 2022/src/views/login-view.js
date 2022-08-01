@@ -37,6 +37,9 @@ export async function loginView(ctx) {
 
         await login(email, password);
         ctx.updateNav();
-        ctx.page.redirect('/dashboard');
+        ctx.page.redirect('/');
     }
 }
+
+
+//solved by refactoring a block of code that looks like going into a loop.

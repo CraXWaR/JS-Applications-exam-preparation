@@ -12,7 +12,7 @@ const main = document.getElementById('main-content');
 document.getElementById('logoutBtn').addEventListener('click', onLogout)
 
 page(decorateCtx);
-page('/dashboard', dashboardView);
+page('/', dashboardView);
 page('/login', loginView);
 page('/register', registerView);
 page('/create', createView);
@@ -47,5 +47,5 @@ function updateNav() {
 function onLogout() {
     logout();
     updateNav();
-    page.redirect('/dashboard');
+    page.redirect('/');
 }
