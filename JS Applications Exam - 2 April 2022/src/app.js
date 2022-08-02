@@ -1,7 +1,10 @@
 import { logout } from './api/users.js';
 import { page, render } from './lib.js'
 import { getUserData } from './util.js';
+import { createPage } from './views/createView.js';
 import { dashboardPage } from './views/dashboardView.js';
+import { detailsPage } from './views/detailsView.js';
+import { editPage } from './views/editView.js';
 import { homePage } from './views/homeView.js';
 import { loginPage } from './views/loginView.js';
 import { registerPage } from './views/registerView.js';
@@ -15,7 +18,9 @@ page('/', homePage);
 page('/login', loginPage);
 page('/register', registerPage);
 page('/dashboard', dashboardPage);
-page('/dashboard/:id', );
+page('/dashboard/:id', detailsPage);
+page('/createPostcard', createPage);
+page('/edit/:id', editPage);
 
 
 updateNav();
