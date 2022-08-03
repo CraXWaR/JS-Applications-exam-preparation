@@ -16,7 +16,7 @@ const postCard = (post) => html `
         <h2 class="post-title">${post.title}</h2>
         <img class="post-image" src=${post.imageUrl} alt="Material Image">
         <div class="btn-wrapper">
-            <a href="/details" class="details-btn btn">Details</a>
+            <a href="/details/${post._id}" class="details-btn btn">Details</a>
         </div>
     </div>
 </div>`;

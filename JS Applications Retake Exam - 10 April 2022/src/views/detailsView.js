@@ -2,7 +2,7 @@ import { deletePost, getPostDetails } from "../api/posts.js";
 import { html } from "../lib.js";
 import { getUserData } from "../util.js";
 
-const detailsTempalte = (post, owner, onDelete) => html`
+const detailsTempalte = (post, owner, onDelete, userData) => html`
 <section id="details-page">
     <h1 class="title">Post Details</h1>
 
@@ -20,11 +20,12 @@ const detailsTempalte = (post, owner, onDelete) => html`
 
                 <!--Edit and Delete are only for creator-->
                 <div class="btns">
-                    <a href="#" class="edit-btn btn">Edit</a>
-                    <a href="#" @click=${onDelete} class="delete-btn btn">Delete</a>
-
-                    <!--Bonus - Only for logged-in users ( not authors )-->
-                    ${owner ? html`<a href="#" class="donate-btn btn">Donate</a>` : ''}
+                ${owner ? html`<a href="#" class="edit-btn btn">Edit</a>
+                <a href="javascript:void(0)" @click=${onDelete} class="delete-btn btn">Delete</a>`
+                    : ''}
+                <!--Bonus - Only for logged-in users ( not authors )-->
+                ${userData ? html`
+                <a href="javascript:void(0)" class="donate-btn btn">Donate</a>` : ''}
                 </div>
 
             </div>
@@ -37,7 +38,7 @@ export async function detailsView(ctx) {
     const userData = getUserData();
     const owner = userData?.id == post._ownerId;
 
-    ctx.render(detailsTempalte(post, owner, onDelete));
+    ctx.render(detailsTempalte(post, owner, onDelete, userData));
 
     async function onDelete() {
         const choice = confirm('Are u sure u want to delete this post?');

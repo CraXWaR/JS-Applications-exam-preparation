@@ -6,6 +6,7 @@ import { dashboardView } from "./views/dashboard-view.js";
 import { registerView } from "./views/register-view.js";
 import { createView } from "./views/createView.js";
 import { detailsView } from "./views/detailsView.js";
+import { profileView } from "./views/my-posts.js";
 
 const main = document.getElementById('main-content');
 
@@ -16,7 +17,8 @@ page('/', dashboardView);
 page('/login', loginView);
 page('/register', registerView);
 page('/create', createView);
-page('/dashboard/:id', detailsView);
+page('/details/:id', detailsView);
+page('/mypost', profileView);
 
 updateNav();
 page.start();
