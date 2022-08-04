@@ -1,15 +1,15 @@
 import { clearUserData, setUserData } from "../util.js";
 import { get, post } from "./api.js";
 
-export async function login(/* properties */) {
-const result = await post('/users/login', { /* properties */ });
+export async function login(email, password) {
+const result = await post('/users/login', { email, password });
 
     const userData = {
-        // id: result._id,
+        id: result._id,
         // username: result.username,
-        // email: result.email,
+        email: result.email,
         // gender: result.gender,
-        // accessToken: result.accessToken
+        accessToken: result.accessToken
     };
 
     setUserData(userData);
@@ -17,15 +17,15 @@ const result = await post('/users/login', { /* properties */ });
     return result;
 }
 
-export async function register(/* properties */) {
-    const result = await post('/users/register', { /* properties */ });
+export async function register(email, password) {
+    const result = await post('/users/register', { email, password });
 
     const userData = {
-        // id: result._id,
+        id: result._id,
         // username: result.username,
-        // email: result.email,
+        email: result.email,
         // gender: result.gender,
-        // accessToken: result.accessToken
+        accessToken: result.accessToken
     };
 
     setUserData(userData);
