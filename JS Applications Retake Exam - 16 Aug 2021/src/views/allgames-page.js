@@ -1,4 +1,4 @@
-import { getCatalogueGems } from "../api/games.js";
+import { getCatalogueGames } from "../api/games.js";
 import { html } from "../lib.js";
 
 const allGamesTemp = (games) => html`
@@ -20,7 +20,7 @@ const gamesCard = (game) => html`
 `;
 
 export async function allGamesCatalogue(ctx) {
-    const games = await getCatalogueGems();
+    const games = await getCatalogueGames();
 
     ctx.render(allGamesTemp(games))
 }

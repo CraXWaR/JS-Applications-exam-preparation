@@ -3,6 +3,7 @@ import { page, render } from './lib.js';
 import { getUserData } from './util.js';
 import { allGamesCatalogue } from './views/allgames-page.js';
 import { createView } from './views/create-page.js';
+import { editView } from './views/edit-page.js';
 import { gameDetailsView } from './views/game-details-page.js';
 import { homeView } from './views/home-page.js';
 import { loginView } from './views/login-page.js';
@@ -19,7 +20,7 @@ page('/register', regiterView);
 page('/all-games', allGamesCatalogue);
 page('/all-games/:id', gameDetailsView);
 page('/create', createView);
-//page('/edit/:id', );
+page('/edit/:id', editView);
 
 updateNav();
 page.start();

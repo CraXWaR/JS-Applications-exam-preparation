@@ -4,7 +4,7 @@ export function getGames() {
     return get('/data/games?sortBy=_createdOn%20desc&distinct=category');
 }
 
-export function getCatalogueGems() {
+export function getCatalogueGames() {
     return get('/data/games?sortBy=_createdOn%20desc');
 }
 
@@ -18,4 +18,8 @@ export function deleteGame(id) {
 
 export function createGame(game) {
     return post('/data/games', game)
+}
+
+export function updateGame(id, game) {
+    return post('/data/games/' + id, game)
 }

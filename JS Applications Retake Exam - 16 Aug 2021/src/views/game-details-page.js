@@ -1,5 +1,5 @@
 import { html } from "../lib.js";
-import { getGameById } from "../api/games.js";
+import { deleteGame, getGameById } from "../api/games.js";
 import { getUserData } from "../util.js";
 
 const gameDetailsTemp = (game, ifOwner, onDelete) => html`
@@ -36,7 +36,7 @@ export async function gameDetailsView(ctx) {
         const choice = confirm('Are u sure u want to delete this game?');
 
         if (choice) {
-            await deleteMeme(ctx.params.id)
+            await deleteGame(ctx.params.id)
             ctx.page.redirect('/')
         }
     }
