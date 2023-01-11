@@ -2,7 +2,7 @@ import { createMeme } from "../api/memes.js";
 import { html } from "../lib.js";
 import { notify } from "../notify.js";
 
-const createTemplate = (onSubmit) => html `
+const createTemplate = (onSubmit) => html`
 <section id="create-meme">
     <form @submit=${onSubmit} id="create-form">
         <div class="container">

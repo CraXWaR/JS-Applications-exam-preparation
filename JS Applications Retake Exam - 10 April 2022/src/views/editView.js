@@ -51,7 +51,7 @@ export async function editView(ctx) {
             address: formData.get('address'),
             phone: formData.get('phone')
         }
-        
+
         if (post.title == "" || post.description == "" || post.imageUrl == "" || post.address == "" || post.phone == "") {
             return alert('All field are required!');
         }

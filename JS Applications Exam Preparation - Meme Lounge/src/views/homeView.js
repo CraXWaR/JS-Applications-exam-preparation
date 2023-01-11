@@ -1,6 +1,6 @@
 import { html } from "../lib.js";
 import { getUserData } from '../util.js';
-const homeTemplate = () => html `
+const homeTemplate = () => html`
 <section id="welcome">
             <div id="welcome-container">
                 <h1>Welcome To Meme Lounge</h1>

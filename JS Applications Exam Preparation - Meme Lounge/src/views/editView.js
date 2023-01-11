@@ -2,7 +2,7 @@ import { getMemeById, updateMeme } from "../api/memes.js";
 import { html } from "../lib.js";
 import { notify } from "../notify.js";
 
-const editTemplate = (meme, onSubmit) => html `
+const editTemplate = (meme, onSubmit) => html`
 <section id="edit-meme">
     <form @submit=${onSubmit} id="edit-form">
         <h1>Edit Meme</h1>

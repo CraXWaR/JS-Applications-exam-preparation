@@ -35,7 +35,7 @@ export function registerView(ctx) {
         const email = formData.get('email');
         const password = formData.get('password');
         const rePass = formData.get('repeatPassword');
-        
+
         if (email == "" || password == "") {
             return alert('All fields are required!');
         }

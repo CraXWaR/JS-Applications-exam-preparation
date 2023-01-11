@@ -22,7 +22,7 @@ const detailsTempalte = (post, owner, onDelete, userData) => html`
                 <div class="btns">
                 ${owner ? html`<a href="#" class="edit-btn btn">Edit</a>
                 <a href="javascript:void(0)" @click=${onDelete} class="delete-btn btn">Delete</a>`
-                    : ''}
+        : ''}
                 <!--Bonus - Only for logged-in users ( not authors )-->
                 ${userData ? html`
                 <a href="javascript:void(0)" class="donate-btn btn">Donate</a>` : ''}

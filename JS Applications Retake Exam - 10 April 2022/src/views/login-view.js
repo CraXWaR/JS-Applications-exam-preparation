@@ -2,7 +2,7 @@ import { login } from "../api/users.js";
 import { html } from "../lib.js";
 
 
-const loginTemplate = (onLogin) => html `
+const loginTemplate = (onLogin) => html`
 <section id="login-page" class="auth">
     <form @submit=${onLogin} id="login">
         <h1 class="title">Login</h1>
@@ -23,7 +23,7 @@ const loginTemplate = (onLogin) => html `
 
 export async function loginView(ctx) {
     ctx.render(loginTemplate(onLogin));
-    
+
     async function onLogin(e) {
         e.preventDefault();
         const formData = new FormData(e.target);

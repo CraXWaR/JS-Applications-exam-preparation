@@ -15,7 +15,7 @@ const detailsTemplate = (meme, owner, onDelete) => html`
             ${meme.description}
         </p>
         ${owner ? html`<a class="button warning" href=/edit/${meme._id}>Edit</a>
-        <button @click=${onDelete} class="button danger">Delete</button>` 
+        <button @click=${onDelete} class="button danger">Delete</button>`
         : ''}
     </div>
 </div>
@@ -26,7 +26,7 @@ export async function detailsView(ctx) {
     const meme = await getMemeById(ctx.params.id);
     const userData = getUserData();
     const isOwner = userData?.id == meme._ownerId;
-    
+
     ctx.render(detailsTemplate(meme, isOwner, onDelete));
 
     async function onDelete() {

@@ -22,5 +22,5 @@ export async function updateMeme(id, meme) {
 }
 
 export async function getUserMemes(userId) {
-    return get (`/data/memes?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`)
+    return get(`/data/memes?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`)
 }

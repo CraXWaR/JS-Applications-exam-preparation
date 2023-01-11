@@ -53,10 +53,10 @@ export function createView(ctx) {
         if (post.title == "" || post.description == "" || post.imageUrl == "" || post.address == "" || post.phone == "") {
             return alert('All fields are required!');
         }
-        
-    await createPost(post);
-    e.target.reset();
-    ctx.updateNav();
-    ctx.page.redirect('/dashboard');
+
+        await createPost(post);
+        e.target.reset();
+        ctx.updateNav();
+        ctx.page.redirect('/dashboard');
     }
 }

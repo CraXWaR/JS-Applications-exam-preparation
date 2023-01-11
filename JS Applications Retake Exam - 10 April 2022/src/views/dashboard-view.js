@@ -2,15 +2,15 @@ import { getAllPosts } from "../api/posts.js";
 import { html } from "../lib.js";
 import { getUserData } from "../util.js";
 
-const dashboardTemplate = (posts) => html `
+const dashboardTemplate = (posts) => html`
 <section id="dashboard-page">
     <h1 class="title">All Posts</h1>
-    ${posts.length == 0 ? 
-    html `<h1 class="title no-posts-title">No posts yet!</h1>` : 
-    
-    posts.map(postCard)}`;
+    ${posts.length == 0 ?
+        html`<h1 class="title no-posts-title">No posts yet!</h1>` :
 
-const postCard = (post) => html `
+        posts.map(postCard)}`;
+
+const postCard = (post) => html`
 <div class="all-posts">
     <div class="post">
         <h2 class="post-title">${post.title}</h2>

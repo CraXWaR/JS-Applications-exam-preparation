@@ -7,7 +7,7 @@ const profileTemplate = (posts) => html`
     <h1 class="title">My Posts</h1>
         <div class="my-posts">
             ${posts.length == 0 ? html`<h1 class="title no-posts-title">You have no posts yet!</h1>`
-            : posts.map(userPosts)}
+        : posts.map(userPosts)}
         </div>   
 </section>`;
 
