@@ -1,8 +1,8 @@
 import { login } from "../api/api.js";
 import { html, render } from "../lib.js";
 
-const loginTemplate = (onSubmit) => html 
-`<section id="login-page" class="login">
+const loginTemplate = (onSubmit) => html
+    `<section id="login-page" class="login">
     <form @submit=${onSubmit} id="login-form" action="" method="">
         <fieldset>
             <legend>Login Form</legend>
@@ -25,7 +25,7 @@ const loginTemplate = (onSubmit) => html
 
 export function loginPage(ctx) {
     ctx.render(loginTemplate(onSubmit));
-    
+
     async function onSubmit(e) {
         e.preventDefault();
         const formData = new FormData(e.target);

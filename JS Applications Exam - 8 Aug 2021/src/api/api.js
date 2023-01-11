@@ -26,13 +26,13 @@ function createOptions(method = 'get', data) {
         method,
         headers: {}
     };
-    
+
     if (data != undefined) {
         options.headers['Content-Type'] = 'application/json';
         options.body = JSON.stringify(data);
-        
+
     }
-    
+
     let userData = getUserData();
     if (userData) {
         options.headers['X-Authorization'] = userData.accessToken;
@@ -77,7 +77,7 @@ export async function register(email, password) {
         id: result._id,
         accessToken: result.accessToken
     };
-    
+
     setUserData(userData);
     return result;
 }

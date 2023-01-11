@@ -1,8 +1,8 @@
 import { register } from "../api/api.js";
 import { html } from "../lib.js";
 
-const registerTemplate = (onSubmit) => html 
-`<section id="register-page" class="register">
+const registerTemplate = (onSubmit) => html
+    `<section id="register-page" class="register">
     <form @submit=${onSubmit}id="register-form" action="" method="">
         <fieldset>
             <legend>Register Form</legend>
@@ -31,7 +31,7 @@ const registerTemplate = (onSubmit) => html
 
 export function registerPage(ctx) {
     ctx.render(registerTemplate(onSubmit));
- 
+
     async function onSubmit(e) {
         e.preventDefault();
         const formData = new FormData(e.target);

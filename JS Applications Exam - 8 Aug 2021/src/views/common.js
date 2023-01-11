@@ -1,6 +1,6 @@
 import { html } from "../lib.js";
 
-export const bookPreview = (book) => html `
+export const bookPreview = (book) => html`
 <li class="otherBooks">
     <h3>${book.title}</h3>
     <p>Type: ${book.type}</p>

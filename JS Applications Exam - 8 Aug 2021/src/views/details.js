@@ -2,7 +2,7 @@ import { html } from "../lib.js";
 import { getUserData } from "../util.js";
 import { deleteBook, getBookById, getLikesByBookId, getMyLikesByBookId, likeBook } from "../api/data.js";
 
-const detailsTemplate = (book, isOwner, onDelete, likes, showLikeBtn, onLike) => html `
+const detailsTemplate = (book, isOwner, onDelete, likes, showLikeBtn, onLike) => html`
 <section id="details-page" class="details">
     <div class="book-information">
         <h3>${book.title}</h3>
@@ -27,7 +27,7 @@ const detailsTemplate = (book, isOwner, onDelete, likes, showLikeBtn, onLike) =>
 const bookControlsTempalte = (book, isOwner, onDelete) => {
     if (isOwner) {
         return html
-        `<a class="button" href="/edit/${book._id}">Edit</a>
+            `<a class="button" href="/edit/${book._id}">Edit</a>
         <a @click=${onDelete} class="button" href="javascript:void(0)">Delete</a>`;
     } else {
         return null;
@@ -35,8 +35,8 @@ const bookControlsTempalte = (book, isOwner, onDelete) => {
 }
 
 const likesControlsTemplate = (showLikeBtn, onLike) => {
-    if(showLikeBtn) {
-        return html `<a @click=${onLike} id="like" class="button" href="javascript:void(0)">Like</a>`;
+    if (showLikeBtn) {
+        return html`<a @click=${onLike} id="like" class="button" href="javascript:void(0)">Like</a>`;
     }
     return null;
 }
