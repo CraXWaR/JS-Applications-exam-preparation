@@ -6,8 +6,8 @@ const catalogTemp = (albums) => html`
 <section id="catalogPage">
     <h1>All Albums</h1>
     <!--No albums in catalog-->
-    ${albums.length == 0 ? html`<p>No Albums in Catalog!</p>` : 
-    albums.map(albumCards)}
+    ${albums.length == 0 ? html`<p>No Albums in Catalog!</p>` :
+        albums.map(albumCards)}
     
 </section>`;
 
@@ -52,7 +52,7 @@ export async function catalogView(ctx) {
     const userData = getUserData();
 
     if (userData) {
-        
+
     }
 
     ctx.render(catalogTemp(albums))

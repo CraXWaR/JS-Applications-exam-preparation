@@ -27,7 +27,7 @@ const detailsTemp = (pet, ifOwner, onDelete) => html`
         </div>
     </div>
 </section>`;
-            
+
 export async function detailsPage(ctx) {
     const pet = await getPetById(ctx.params.id);
     const userData = getUserData();
@@ -36,7 +36,7 @@ export async function detailsPage(ctx) {
     ctx.render(detailsTemp(pet, ifOwner, onDelete));
 
     async function onDelete() {
-        
+
         const choice = confirm('Are u sure u want to delete this post?');
 
         if (choice) {

@@ -28,19 +28,19 @@ const loginTemp = (onSubmit) => html`
 export function loginPage(ctx) {
     ctx.render(loginTemp(onSubmit));
 
-        async function onSubmit(e) {
-            e.preventDefault();
-            const formData = new FormData(e.target);
+    async function onSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
 
-            const email = formData.get('email');
-            const password = formData.get('password');
+        const email = formData.get('email');
+        const password = formData.get('password');
 
-            if (email == "" || password == "") {
-                return alert("All fields are required!");
-            }
-
-            await login(email, password);
-            ctx.updateNav();
-            ctx.page.redirect('/')
+        if (email == "" || password == "") {
+            return alert("All fields are required!");
         }
+
+        await login(email, password);
+        ctx.updateNav();
+        ctx.page.redirect('/')
+    }
 }

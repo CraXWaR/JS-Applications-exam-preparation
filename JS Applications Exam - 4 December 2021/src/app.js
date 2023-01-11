@@ -49,7 +49,7 @@ function updateNav() {
         document.getElementById('login').style.display = 'block';
         document.getElementById('register').style.display = 'block';
         document.getElementById('create').style.display = 'none';
-        document.getElementById('logoutBtn').style.display = 'none';  
+        document.getElementById('logoutBtn').style.display = 'none';
     }
 }
 

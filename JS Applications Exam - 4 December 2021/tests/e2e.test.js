@@ -512,7 +512,7 @@ describe('E2E tests', function () {
         it('Show results with 2 albums for Guest [ 2.5 Points ]', async () => {
             const { get } = await handle(endpoints.search('Name'));
             get(mockData.catalog.slice(0, 2));
-            
+
             await page.goto(host);
             await page.waitForTimeout(interval);
 
@@ -533,7 +533,7 @@ describe('E2E tests', function () {
         it('No Details button for Guest [ 2.5 Points ]', async () => {
             const { get } = await handle(endpoints.search('Name'));
             get(mockData.catalog.slice(0, 1));
-            
+
             await page.goto(host);
             await page.waitForTimeout(interval);
 
@@ -551,7 +551,7 @@ describe('E2E tests', function () {
 
             expect(await page.isVisible('text="Details"')).to.be.false;
         });
-        
+
         it('Show no matches for Users [ 2.5 Points ]', async () => {
             // Login user
             const data = mockData.users[0];

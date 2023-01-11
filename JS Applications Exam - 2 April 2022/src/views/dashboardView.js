@@ -5,8 +5,8 @@ const dashboardTemp = (pets) => html`
 <section id="dashboard">
     <h2 class="dashboard-title">Services for every animal</h2>
     <div class="animals-dashboard">
-        ${pets.length == 0 
-        ? html`<p class="no-pets">No pets in dashboard</p>` 
+        ${pets.length == 0
+        ? html`<p class="no-pets">No pets in dashboard</p>`
         : pets.map(petCard)}
         </div>
     </div>

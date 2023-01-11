@@ -2,7 +2,7 @@ import { register } from "../api/users.js";
 import { html } from "../lib.js";
 
 const registerTemp = (onSubmit) => html
-`<section id="registerPage">
+    `<section id="registerPage">
     <form @submit=${onSubmit}>
         <fieldset>
             <legend>Register</legend>
@@ -43,7 +43,7 @@ export function registerView(ctx) {
         if (password != confPass) {
             return alert('Password don\'t match')
         }
-        
+
         await register(email, password);
         ctx.updateNav();
         ctx.page.redirect('/home')

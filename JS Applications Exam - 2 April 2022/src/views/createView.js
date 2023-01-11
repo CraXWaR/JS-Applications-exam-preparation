@@ -40,11 +40,11 @@ export function createPage(ctx) {
         const formData = new FormData(e.target);
 
         const pet = {
-          name: formData.get('name'),
-          breed: formData.get('breed'),
-          age: formData.get('age'),
-          weight: formData.get('weight'),
-          image: formData.get('image')
+            name: formData.get('name'),
+            breed: formData.get('breed'),
+            age: formData.get('age'),
+            weight: formData.get('weight'),
+            image: formData.get('image')
         }
 
         if (pet.name == "" || pet.breed == "" || pet.age == "" || pet.weight == "" || pet.image == "") {
